@@ -90,7 +90,7 @@
                 })
                 .then(function(data){
                     callback(data)
-                    console.info(data)
+                    console.log(data)
                 })
             }
         }
