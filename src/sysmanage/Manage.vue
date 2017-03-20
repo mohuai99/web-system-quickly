@@ -8,6 +8,7 @@
         </div>
         <div class="main">
             <div class="content">
+                <button @click="clickme">clickme</button>
                 <router-view></router-view>
             </div>
         </div>
@@ -27,59 +28,71 @@
                 sql: ''
             }
         },
-        mounted: {
+        methods: {
+            clickme() {
+                this.post('http://localhost:8080/api/list', {
+                    name: 'wsq'
+                })
+            },
+            post(url, json, callback) {
+                fetch(url, {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(json)
+                }).then(function(res) {
+                    res.json().then(function(data) {
+                        console.log(data)
+                    })
+                })
+            }
         }
     }
 </script>
 
 <style>
-    .body{
+    .body {
         height: 100%;
         width: 100%;
         background-color: #f7f7f7;
     }
-
-    .header{
+    .header {
         background-color: #6dad01;
         height: 60px;
-        width:100%;
+        width: 100%;
         position: absolute;
         left: 0;
-        right:0;
-        top:0;
-        bottom:0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         text-align: left;
         line-height: 60px;
-        
     }
-
-    .logo{
+    .logo {
         margin-left: 40px;
         vertical-align: middle;
     }
-
-    .leftside{
+    .leftside {
         background-color: #f7f7f7;
-        width:260px;
+        width: 260px;
         position: absolute;
         left: 0;
-        right:0;
-        top:60px;
-        bottom:0;
+        right: 0;
+        top: 60px;
+        bottom: 0;
         margin: 0px;
     }
-
-    .main{
+    .main {
         background-color: #f7f7f7;
         position: absolute;
         left: 260px;
-        right:0;
-        top:60px;
-        bottom:0;
+        right: 0;
+        top: 60px;
+        bottom: 0;
         margin: 0px;
     }
-
-    .content{
+    .content {
         height: 90%;
         margin: 12px 14px 0 0;
         background-color: #fff;

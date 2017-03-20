@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router=true>
+        <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :router="isRouter">
             <el-submenu index="1">
                 <template slot="title"><i class="el-icon-message"></i>新闻管理</template>
                 <el-menu-item-group>
@@ -34,7 +34,16 @@
         name: 'menu',
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App'
+                msg: 'Welcome to Your Vue.js App',
+                isRouter: true
+            }
+        },
+        methods: {
+            handleOpen: function() {
+
+            },
+            handleClose: function() {
+
             }
         }
     }

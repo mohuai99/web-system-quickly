@@ -11,6 +11,12 @@
             return {
                 currentPage: 5
             }
+        },
+        methods: {
+            handleSizeChange: function() {
+            },
+            handleCurrentChange: function() {
+            }
         }
     }
 </script>

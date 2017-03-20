@@ -1,7 +1,9 @@
 <template>
     <div class="hello">
         <ul>
-            <li><router-link to="manage">Manage</router-link></li>
+            <li>
+                <router-link to="manage">Manage</router-link>
+            </li>
         </ul>
     </div>
 </template>
@@ -37,5 +39,4 @@
     a {
         color: #42b983;
     }
-
 </style>

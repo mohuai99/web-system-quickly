@@ -8,8 +8,11 @@ if (!process.env.NODE_ENV) {
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
+var router = express.Router()
+var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
 var webpack = require('webpack')
-var proxyMiddleware = require('http-proxy-middleware')
+    // var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
     // MsZoomToOptions
     // default port where dev server listens for incoming traffic
@@ -19,13 +22,13 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
     // Define HTTP proxies to your custom API backend
     // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
+var app = express()
 
-var router = express.Router()
-router.get("list", function(req, res) {
-    res.send(JSON.stringify({ name: 'wsq' }));
-})
-
-express.use(router)
+router.post("/api/list", function(req, res) {
+        res.status(200).json(JSON.stringify({ msg: 'hello world' }));
+    })
+    // module.exports = router;
+app.use(router)
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -45,13 +48,13 @@ compiler.plugin('compilation', function(compilation) {
 })
 
 // proxy api requests
-Object.keys(proxyTable).forEach(function(context) {
-    var options = proxyTable[context]
-    if (typeof options === 'string') {
-        options = { target: options }
-    }
-    app.use(proxyMiddleware(options.filter || context, options))
-})
+// Object.keys(proxyTable).forEach(function(context) {
+//     var options = proxyTable[context]
+//     if (typeof options === 'string') {
+//         options = { target: options }
+//     }
+//     app.use(proxyMiddleware(options.filter || context, options))
+// })
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
