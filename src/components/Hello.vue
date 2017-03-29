@@ -2,7 +2,7 @@
     <div class="hello">
         <ul>
             <li>
-                <router-link to="manage">Manage</router-link>
+                <router-link to="manage">{{$wsq_i18n('$i18n.manage')}}</router-link>
             </li>
         </ul>
     </div>

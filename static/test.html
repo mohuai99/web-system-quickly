@@ -5,60 +5,26 @@
 
 <script>
     export default {
-        name: 'hello',
+        name: 'list',
+        components: {
+            'wsq-pager': Pager
+        },
+        props: ['colLists', 'listModel'],
+        mounted: function() {
+            let me = this,
+                url = 'news/lists/',
+                obj = {}
+            Http.post(url, obj, function(data) {
+                if (data.code === 200) {
+                    this.tableData = data.rows
+                } else {
+                    me.$message.error('获取新闻列表失败！')
+                }
+            })
+        },
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App',
-                tableData3: [{
-                    date: '2016-05-03',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-04',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-01',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-08',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-06',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }, {
-                    date: '2016-05-07',
-                    name: '王小虎',
-                    province: '上海',
-                    city: '普陀区',
-                    address: '上海市普陀区金沙江路 1518 弄',
-                    zip: 200333
-                }]
+                tableData: []
             }
         },
         methods: {
@@ -71,18 +37,18 @@
             deleteRow(index, row) {
                 console.log(index, row)
             },
-
-            getsql() {
-                var arr = [{
-                    field: "col1",
-                    op: "Group by",
-                }, {
-                    field: "col1",
-                    op: "Group by",
-                }, {
-                    field: "col1",
-                    op: "Group by",
-                }]
+            post(url, json, callback) {
+                fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'text/plain'
+                        },
+                        body: JSON.stringify(json)
+                    })
+                    .then(function(data) {
+                        callback(data)
+                        console.log(data)
+                    })
             }
         }
     }

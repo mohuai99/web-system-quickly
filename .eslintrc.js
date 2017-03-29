@@ -39,6 +39,10 @@ module.exports = {
         "indent": [2, 4],
 
         // 文件末尾强制换行
-        "eol-last": 2
+        "eol-last": 2,
+
+        "one-var": 0,
+
+        "semi": [0, "never"],
     }
 }

@@ -7,21 +7,44 @@
                 <el-breadcrumb-item>新闻列表</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <wsq-list></wsq-list>
+        <wsq-list :colLists="colLists" :tableData="tableData"></wsq-list>
     </div>
 </template>
 
 <script>
     import List from '../components/list'
+    import Http from '../../assets/util/http'
     export default {
         name: 'news',
         data() {
             return {
-                msg: 'Welcome to news list'
+                colLists: [{
+                    field: 'name',
+                    label: '姓名'
+                }, {
+                    field: 'address',
+                    label: '地址'
+                }, {
+                    field: 'date',
+                    label: '日期'
+                }],
+                tableData: []
             }
         },
         components: {
             'wsq-list': List
+        },
+        mounted: function() {
+            var me = this,
+                url = 'news/lists/',
+                obj = {}
+            Http.post(url, obj, function(data) {
+                if (data.code === 200) {
+                    me.tableData = data.rows
+                } else {
+                    me.$message.error('获取新闻列表失败！')
+                }
+            })
         }
     }
 </script>

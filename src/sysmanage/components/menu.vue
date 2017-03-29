@@ -51,38 +51,38 @@
 
 <style >
     .menu{
-        width:210px;
+        width:220px;
         height: 90%;
-        margin: 12px 14px 0;
-        background-color: #fff;
-        border: solid 1px #eee;
-        border-radius: 3px;
+        margin: 0;
+        background-color: #2f4050;
         text-align: left;
-        padding: 12px;
+        padding: 0px;
     }
 
     .menu .el-menu{
-        background-color: #fff;
+        background:transparent;
     }
 
     .el-menu .el-submenu, .el-menu .el-menu-item{
-        background-color: #fff;
-        margin-bottom: 12px;
+        margin-bottom: 0px;
     }
 
     .el-menu .el-menu-item, .el-menu .el-submenu__title{
-        height: 36px;
-        line-height: 36px;
-        background-color: #508101;
+        height: 46px;
+        line-height: 46px;
     }
 
     .el-menu .el-submenu {
-        color:#fff;
+        color:#999;
+    }
+
+    .el-menu .el-submenu.is-opened{
+        background-color: #293846;
     }
 
     .el-menu .el-submenu .el-menu-item-group{
-        padding: 12px 0 20px;
-        background-color: #fff;
+        padding: 0;
+        background-color: #293846;
     }
 
     .el-menu .el-submenu .el-menu-item-group .el-menu-item-group__title{
@@ -90,29 +90,28 @@
     }
 
     .el-menu .el-submenu .el-menu-item{
-        background-color: #fff;
-        border-bottom: dotted 1px #ccc;
-        color: #666;
+        color: #999;
         border-radius: 0;
         margin-bottom: 0;
-        height: 32px ;
-        line-height: 32px;
+        height: 42px;
+        line-height: 42px;
     }
 
      .el-menu .el-submenu .el-submenu__title,.el-menu .el-menu-item{
-         color:#fff;
+         color:#999;
      }
 
     .el-menu .el-menu-item:hover, 
     .el-menu .el-submenu:hover, 
     .el-menu .el-submenu .el-submenu__title:hover{
-        background-color: #508101;
+        background-color: #293846;
+        color:#fff;
     }
 
     .el-menu .el-submenu .el-menu-item:hover{
         border-radius: 0px;
-        background-color: #F9F9F9;
-        color:#508101;
+        background-color: #293846;
+        color:#fff;
     }
 </style>
 

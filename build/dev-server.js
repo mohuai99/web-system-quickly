@@ -9,6 +9,7 @@ var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var router = express.Router()
+var handler = require('./handler')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 var webpack = require('webpack')
@@ -24,10 +25,9 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 var app = express()
 
-router.post("/api/list", function(req, res) {
-        res.status(200).json(JSON.stringify({ msg: 'hello world' }));
-    })
-    // module.exports = router;
+router.post("/news/lists/", handler.news.list)
+
+
 app.use(router)
 var compiler = webpack(webpackConfig)
 

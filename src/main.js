@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Index from './Index'
 import router from './router'
 import ElementUI from 'element-ui'
+import i18n from './i18n'
 import 'element-ui/lib/theme-default/index.css'
 
 Vue.config.productionTip = false
@@ -13,5 +14,6 @@ Vue.use(ElementUI)
 new Vue({
     el: '#app',
     router,
+    i18n,
     render: h => h(Index)
 })

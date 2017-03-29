@@ -8,7 +8,6 @@
         </div>
         <div class="main">
             <div class="content">
-                <button @click="clickme">clickme</button>
                 <router-view></router-view>
             </div>
         </div>
@@ -24,30 +23,10 @@
         },
         data() {
             return {
-                msg: 'Welcome to Manage Index',
                 sql: ''
             }
         },
-        methods: {
-            clickme() {
-                this.post('http://localhost:8080/api/list', {
-                    name: 'wsq'
-                })
-            },
-            post(url, json, callback) {
-                fetch(url, {
-                    method: 'post',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(json)
-                }).then(function(res) {
-                    res.json().then(function(data) {
-                        console.log(data)
-                    })
-                })
-            }
-        }
+        methods: {}
     }
 </script>
 
@@ -55,10 +34,10 @@
     .body {
         height: 100%;
         width: 100%;
-        background-color: #f7f7f7;
     }
     .header {
-        background-color: #6dad01;
+        background-color: #f3f3f4;
+        border-bottom: solid 1px #eee;
         height: 60px;
         width: 100%;
         position: absolute;
@@ -74,8 +53,7 @@
         vertical-align: middle;
     }
     .leftside {
-        background-color: #f7f7f7;
-        width: 260px;
+        width: 220px;
         position: absolute;
         left: 0;
         right: 0;
@@ -84,9 +62,8 @@
         margin: 0px;
     }
     .main {
-        background-color: #f7f7f7;
         position: absolute;
-        left: 260px;
+        left: 220px;
         right: 0;
         top: 60px;
         bottom: 0;
@@ -96,7 +73,6 @@
         height: 90%;
         margin: 12px 14px 0 0;
         background-color: #fff;
-        border: solid 1px #eee;
         border-radius: 3px;
         text-align: left;
         padding: 12px;
