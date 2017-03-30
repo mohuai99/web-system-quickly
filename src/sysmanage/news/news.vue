@@ -51,7 +51,7 @@
 
 <style scoped>
     .pager{
-        margin: 14px;
+        margin: 0px 12px;
     }
     .breadcrumb{
         padding-bottom: 20px;

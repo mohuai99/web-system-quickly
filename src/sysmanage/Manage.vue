@@ -37,7 +37,7 @@
     }
     .header {
         background-color: #f3f3f4;
-        border-bottom: solid 1px #eee;
+        border-bottom: solid 2px #2f4050;
         height: 60px;
         width: 100%;
         position: absolute;
@@ -47,6 +47,7 @@
         bottom: 0;
         text-align: left;
         line-height: 60px;
+        box-sizing: border-box;
     }
     .logo {
         margin-left: 40px;
@@ -68,6 +69,7 @@
         top: 60px;
         bottom: 0;
         margin: 0px;
+        background-color: #f7f7f7;
     }
     .content {
         height: 90%;
@@ -76,5 +78,6 @@
         border-radius: 3px;
         text-align: left;
         padding: 12px;
+        background-color: #f7f7f7;
     }
 </style>
