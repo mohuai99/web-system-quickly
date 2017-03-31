@@ -31,9 +31,12 @@
 </script>
 
 <style>
-    .body {
+
+    html, .body {
         height: 100%;
         width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
     }
     .header {
         background-color: #f3f3f4;
@@ -70,14 +73,15 @@
         bottom: 0;
         margin: 0px;
         background-color: #f7f7f7;
+        overflow-y: auto;
     }
     .content {
-        height: 90%;
         margin: 12px 14px 0 0;
         background-color: #fff;
         border-radius: 3px;
         text-align: left;
         padding: 12px;
         background-color: #f7f7f7;
+        overflow-y: auto;
     }
 </style>

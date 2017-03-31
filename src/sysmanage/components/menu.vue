@@ -38,17 +38,6 @@
                     <el-menu-item index="4-8">选项2</el-menu-item>
                     <el-menu-item index="4-9">选项3</el-menu-item>
                     <el-menu-item index="4-10">选项1</el-menu-item>
-                    <el-menu-item index="4-11">选项1</el-menu-item>
-                    <el-menu-item index="4-12">选项2</el-menu-item>
-                    <el-menu-item index="4-13">选项3</el-menu-item>
-                    <el-menu-item index="4-6">选项3</el-menu-item>
-                    <el-menu-item index="4-7">选项1</el-menu-item>
-                    <el-menu-item index="4-8">选项2</el-menu-item>
-                    <el-menu-item index="4-9">选项3</el-menu-item>
-                    <el-menu-item index="4-10">选项1</el-menu-item>
-                    <el-menu-item index="4-11">选项1</el-menu-item>
-                    <el-menu-item index="4-12">选项2</el-menu-item>
-                    <el-menu-item index="4-13">选项3</el-menu-item>
                 </el-menu-item-group>
             </el-submenu>
             <el-submenu index="5">
@@ -90,7 +79,7 @@
         margin: 0;
         background-color: #2f4050;
         text-align: left;
-        padding: 0px;
+        padding: 12px 0 0px;
         overflow-y: auto; 
     }
 
@@ -122,6 +111,10 @@
     .el-menu .el-submenu .el-menu-item-group{
         padding: 0;
         background-color: #293846;
+    }
+
+    .el-menu .el-submenu .el-menu-item-group .el-menu-item{
+        padding-left: 44px !important;
     }
 
     .el-menu .el-submenu .el-menu-item-group .el-menu-item-group__title{

@@ -40,19 +40,6 @@
             },
             deleteRow(index, row) {
                 console.log(index, row)
-            },
-            post(url, json, callback) {
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'text/plain'
-                    },
-                    body: JSON.stringify(json)
-                })
-                .then(function(data) {
-                    callback(data)
-                    console.log(data)
-                })
             }
         }
     }
