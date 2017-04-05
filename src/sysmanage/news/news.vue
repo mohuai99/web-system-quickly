@@ -19,14 +19,20 @@
         data() {
             return {
                 colLists: [{
-                    field: 'name',
-                    label: '姓名'
+                    field: 'title',
+                    label: '标题',
+                    width: '180'
                 }, {
-                    field: 'address',
-                    label: '地址'
+                    field: 'author',
+                    label: '作者',
+                    width: '120'
                 }, {
-                    field: 'date',
-                    label: '日期'
+                    field: 'click_num',
+                    label: '浏览数',
+                    width: '120'
+                }, {
+                    field: 'time',
+                    label: '发布日期'
                 }],
                 tableData: []
             }
@@ -36,11 +42,10 @@
         },
         mounted: function() {
             var me = this,
-                url = 'news/lists/',
-                obj = {}
-            Http.post(url, obj, function(data) {
+                url = 'news/lists/'
+            Http.get(url, function(data) {
                 if (data.code === 200) {
-                    me.tableData = data.rows
+                    me.tableData = data.data
                 } else {
                     me.$message.error('获取新闻列表失败！')
                 }
@@ -52,9 +57,5 @@
 <style scoped>
     .pager{
         margin: 0px 12px;
-    }
-    .breadcrumb{
-        padding-bottom: 20px;
-        border-bottom: solid 1px #ccc;
     }
 </style>

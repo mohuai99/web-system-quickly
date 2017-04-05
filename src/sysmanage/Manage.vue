@@ -84,4 +84,10 @@
         background-color: #f7f7f7;
         overflow-y: auto;
     }
+
+    .breadcrumb{
+        padding-bottom: 20px;
+        border-bottom: solid 1px #ccc;
+        margin-bottom: 20px;
+    }
 </style>

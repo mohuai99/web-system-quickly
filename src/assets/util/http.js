@@ -11,5 +11,17 @@ export default {
                 callback(data)
             })
         })
+    },
+    get(url, callback) {
+        fetch(url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(res) {
+            res.json().then(function(data) {
+                callback(data)
+            })
+        })
     }
 }

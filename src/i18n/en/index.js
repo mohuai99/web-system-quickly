@@ -1,6 +1,7 @@
 export default {
     $i18n: {
-        news: '新闻',
-        newsClass: '新闻类别'
+        news: 'News',
+        newsClass: 'News Type',
+        manage: 'Manage'
     }
 }

@@ -5,7 +5,7 @@
                 <template slot="title"><i class="el-icon-message"></i>新闻管理</template>
                 <el-menu-item-group>
                     <el-menu-item index="/news">新闻列表</el-menu-item>
-                    <el-menu-item index="1-2">发布新闻</el-menu-item>
+                    <el-menu-item index="/news/add">发布新闻</el-menu-item>
                     <el-menu-item index="1-3">新闻类别管理</el-menu-item>
                 </el-menu-item-group>
             </el-submenu>

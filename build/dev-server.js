@@ -25,8 +25,12 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 var app = express()
 
-router.post("/news/lists/", handler.news.list)
+router.get("/news/lists/", handler.news.list)
+router.post("/news/add/", handler.news.add)
 
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.use(router)
 var compiler = webpack(webpackConfig)

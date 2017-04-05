@@ -25,7 +25,7 @@
         components: {
             'wsq-pager': Pager
         },
-        props: ['tableData', 'colLists', 'listModel'],
+        props: ['tableData', 'colLists', 'routerPage'],
         data() {
             return {
                 sql: []
@@ -44,3 +44,8 @@
         }
     }
 </script>
+<style scoped>
+    .listbox{
+        margin: 12px auto;
+    }
+</style>
