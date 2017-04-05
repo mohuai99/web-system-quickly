@@ -106,7 +106,6 @@
                         const url = '/news/add/',
                             obj = {};
                         Http.post(url, Object.assign(obj, this.newsForm), (data) => {
-                            console.info(data)
                             if (data.code === 200) {
                                 this.$message.success('新闻发布成功！');
                             } else {

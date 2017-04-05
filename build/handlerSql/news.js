@@ -4,8 +4,19 @@ module.exports = {
         return _sql
     },
     getAddSql() {
-        const _sql = `insert into tbl_news (title, author, source, class_id, istop, isnew, islock, ishot, lang_type, summary, content) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        const _sql = `insert into tbl_news (title, author, source, class_id, istop, isnew, islock, ishot, lang_type, summary, content) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        return _sql
+    },
+    getUpdateSql() {
+        const _sql = `123`
+        return _sql
+    },
+    getDeleteSql() {
+        const _sql = `123`
+        return _sql
+    },
+    getHideSql() {
+        const _sql = `update tbl_news set ishide = 1 where id = ?`
         return _sql
     }
 }

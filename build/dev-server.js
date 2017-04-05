@@ -27,6 +27,8 @@ var app = express()
 
 router.get("/news/lists/", handler.news.list)
 router.post("/news/add/", handler.news.add)
+router.post("/news/update/", handler.news.update)
+router.post("/news/hide/", handler.news.hide)
 
 
 app.use(bodyParser.urlencoded({ extended: false }))

@@ -7,7 +7,7 @@
                 <el-breadcrumb-item>新闻列表</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <wsq-list :colLists="colLists" :tableData="tableData"></wsq-list>
+        <wsq-list :colLists="colLists" :tableData="tableData" @editClick="editClick" @deleteClick="deleteClick"></wsq-list>
     </div>
 </template>
 
@@ -21,7 +21,7 @@
                 colLists: [{
                     field: 'title',
                     label: '标题',
-                    width: '180'
+                    sort: true
                 }, {
                     field: 'author',
                     label: '作者',
@@ -29,10 +29,12 @@
                 }, {
                     field: 'click_num',
                     label: '浏览数',
-                    width: '120'
+                    width: '100',
+                    sort: true
                 }, {
                     field: 'time',
-                    label: '发布日期'
+                    label: '发布日期',
+                    width: '120'
                 }],
                 tableData: []
             }
@@ -41,15 +43,33 @@
             'wsq-list': List
         },
         mounted: function() {
-            var me = this,
-                url = 'news/lists/'
-            Http.get(url, function(data) {
+            const url = 'news/lists/'
+            Http.get(url, (data) => {
                 if (data.code === 200) {
-                    me.tableData = data.data
+                    this.tableData = data.data
                 } else {
-                    me.$message.error('获取新闻列表失败！')
+                    this.$message.error('获取新闻列表失败！')
                 }
             })
+        },
+        methods: {
+            editClick(index, row) {
+                alert(index)
+            },
+            deleteClick(index, row) {
+                const url = '/news/hide/',
+                    {id} = row
+                Http.post(url, [id], (data) => {
+                    if (data.code === 200) {
+                        this.tableData.splice(index, 1)
+                        this.$message.success('数据删除成功！');
+                    } else {
+                        this.$message.error(data.msg);
+                    }
+                })
+            }
+            // TODO
+            // 1,编辑功能； 2，预览的地址； 3，个性化配置列； 4，工具栏：批量删除、全屏； 5，分页功能； 6，新闻列表 sql 语句的优化； 7，新增页面富文本编辑框引入； 8，数据安全性； 9，页面性能优化；
         }
     }
 </script>

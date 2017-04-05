@@ -3,7 +3,7 @@
         <el-table :data="tableData" border style="width: 100%" @selection-change="handleSelectionChange">
             <el-table-column fixed="left" type="index" width="55"></el-table-column>
             <el-table-column fixed="left" v-show="false" type="selection" width="55"></el-table-column>
-            <el-table-column v-for="item in colLists" :prop="item.field" :label="item.label" :width="item.width"></el-table-column>
+            <el-table-column v-for="item in colLists" :prop="item.field" :label="item.label" :width="item.width" :sortable="item.sort"></el-table-column>
             <el-table-column fixed="right" label="操作" width="150">
                 <template scope="scope">
                     <router-link class="el-button el-button--text el-button--small" to="/">预览</router-link>
@@ -14,6 +14,7 @@
         </el-table>
         <div class="pagerbar">
             <wsq-pager></wsq-pager>
+            {{multipleSelection}}
         </div>
     </div>
 </template>
@@ -28,7 +29,7 @@
         props: ['tableData', 'colLists', 'routerPage'],
         data() {
             return {
-                sql: []
+                multipleSelection: []
             }
         },
         methods: {
@@ -36,10 +37,11 @@
                 this.multipleSelection = val
             },
             editRow(index, row) {
-                console.log(index, row)
+                this.$emit('editClick', index, row)
+                // console.log(index, row)
             },
             deleteRow(index, row) {
-                console.log(index, row)
+                this.$emit('deleteClick', index, row)
             }
         }
     }
