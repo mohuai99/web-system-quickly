@@ -33,5 +33,25 @@ module.exports = {
                 console.log(err);
             }
         });
+    },
+    execSqlCallBack: (pool, queryStr, args, callback) => {
+        pool.getConnection(function(err, connection) {
+            if (!err) {
+                connection.query(queryStr, args, function(err, rows) {
+                    const result = { code: null, msg: null, data: null }
+                    if (!err) {
+                        result.code = 200
+                        result.data = rows
+                    } else {
+                        result.code = -1001
+                        result.msg = err.message
+                    }
+                    callback(JSON.stringify(result))
+                    connection.release();
+                });
+            } else {
+                console.log(err);
+            }
+        });
     }
 }

@@ -12,21 +12,13 @@
                 </template>
             </el-table-column>
         </el-table>
-        <div class="pagerbar">
-            <wsq-pager></wsq-pager>
-            {{multipleSelection}}
-        </div>
     </div>
 </template>
 
 <script>
-    import Pager from './pagination'
     export default {
         name: 'list',
-        components: {
-            'wsq-pager': Pager
-        },
-        props: ['tableData', 'colLists', 'routerPage'],
+        props: ['tableData', 'colLists'],
         data() {
             return {
                 multipleSelection: []
@@ -38,7 +30,6 @@
             },
             editRow(index, row) {
                 this.$emit('editClick', index, row)
-                // console.log(index, row)
             },
             deleteRow(index, row) {
                 this.$emit('deleteClick', index, row)

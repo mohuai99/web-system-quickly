@@ -26,6 +26,7 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 
 router.get("/news/lists/", handler.news.list)
+router.get("/news/total/", handler.news.total)
 router.post("/news/add/", handler.news.add)
 router.post("/news/update/", handler.news.update)
 router.post("/news/hide/", handler.news.hide)

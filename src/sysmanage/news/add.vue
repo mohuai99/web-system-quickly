@@ -11,7 +11,6 @@
             <el-form :model="newsForm" :rules="rules" ref="newsForm" :label-position="labelPosition" :label-width="labelWidth" class="elForm">
                 <el-form-item label="新闻标题" prop="title">
                     <el-input v-model="newsForm.title" placeholder="新闻标题"></el-input>
-                    
                 </el-form-item>
                 <el-form-item label="新闻作者" prop="author">
                     <el-input v-model="newsForm.author" placeholder="新闻作者"></el-input>
@@ -47,7 +46,6 @@
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="submitForm('newsForm')">发布新闻</el-button>
-                    <el-button @click="resetForm('newsForm')">重置</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -117,9 +115,6 @@
                         return false;
                     }
                 });
-            },
-            resetForm(formName) {
-                this.$refs[formName].resetFields();
             }
         }
     }

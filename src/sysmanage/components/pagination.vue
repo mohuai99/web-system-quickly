@@ -1,21 +1,19 @@
 <template>
     <div class="pagerbox">
-        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="sizes, prev, pager, next" :total="1000"></el-pagination>
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage" :page-sizes="pageSizes" :page-size="currPageSize" layout="prev, pager, next, sizes" :total="total"></el-pagination>
     </div>
 </template>
 
 <script>
     export default {
         name: 'pagination',
-        data() {
-            return {
-                currentPage: 5
-            }
-        },
+        props: ['currentPage', 'pageSizes', 'currPageSize', 'total'],
         methods: {
-            handleSizeChange: function() {
+            handleSizeChange: function(pageSize) {
+                this.$emit('changePageSize', pageSize)
             },
-            handleCurrentChange: function() {
+            handleCurrentChange: function(currPage) {
+                this.$emit('changeCurrPage', currPage)
             }
         }
     }
